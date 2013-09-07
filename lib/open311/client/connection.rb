@@ -16,6 +16,7 @@ module Open311
         }
 
         Faraday.new(options) do |connection|
+          connection.use Faraday::Request::UrlEncoded
           connection.use Faraday::Request::Multipart
           unless raw
             connection.use Faraday::Response::Mashify
